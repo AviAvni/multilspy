@@ -159,6 +159,8 @@ class LanguageServer:
 
         self.language_id = language_id
         self.open_file_buffers: Dict[str, LSPFileBuffer] = {}
+        if "environmentPath" in config:
+            self.environment_path = config.environmentPath
 
     @asynccontextmanager
     async def start_server(self) -> AsyncIterator["LanguageServer"]:
